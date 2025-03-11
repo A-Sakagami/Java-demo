@@ -3,7 +3,7 @@ package api.httprequest;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class getAPIKEY {
-    private static final Dotenv dotenv = Dotenv.load();
+    private static final Dotenv dotenv = Dotenv.configure().directory("src/main/resources").ignoreIfMissing().load();
 
     public static String getOpenweatherApi() {
         String apiKey = dotenv.get("OPEN_WEATHER_API_KEY");
