@@ -1,0 +1,3 @@
+api\httprequest\getAPIKEY.class
+api\httprequest\HttpClientService.class
+api\weather\OpenWeatherRequestCatch.class
