@@ -104,7 +104,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>${maven-checkstyle-plugin.version}</version>
+        <version>3.6.0</version>
         <executions>
           <execution>
             <id>validate</id>
@@ -141,9 +141,8 @@
           </execution>
         </executions>
       </plugin>
-
-      <!-- JAR にクラスファイルを含める -->
-      <plugin>
+      <!-- JAR を作成するための maven-jar-plugin -->
+        <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.2.0</version>
@@ -152,7 +151,13 @@
                   <manifest>
                       <mainClass>api.weather.OpenWeatherRequestCatch</mainClass>
                   </manifest>
+                  <manifestEntries>
+                      <Class-Path>lib/*</Class-Path>
+                  </manifestEntries>
               </archive>
+              <includes>
+                  <include>**/*.class</include>
+              </includes>
           </configuration>
       </plugin>
     </plugins>
