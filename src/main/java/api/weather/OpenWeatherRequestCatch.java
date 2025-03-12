@@ -29,6 +29,10 @@ public class OpenWeatherRequestCatch {
             // 整形しないver
             System.out.println("DEBUG: APIからのレスポンス: " + jsonResponse);
             // 整形して表示
+            System.out.println(" icon: " + jsonObject.getAsJsonArray("weather").get(0).getAsJsonObject().get("icon").getAsString());
+            String iconCode = jsonObject.getAsJsonArray("weather").get(0).getAsJsonObject().get("icon").getAsString();
+            String iconUrl = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+            System.out.println(" icon URL: " + iconUrl);
             System.out.println("🌍 都市名: " + jsonObject.get("name").getAsString());
             System.out.println(countryFlagConverter.getFlagEmoji(jsonObject.getAsJsonObject("sys").get("country").getAsString()));
             System.out.println("🌡️ 気温(°C): " + jsonObject.getAsJsonObject("main").get("temp").getAsDouble() + "°C");
