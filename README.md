@@ -69,7 +69,7 @@ java -cp "target/demo-1.0-SNAPSHOT.jar;target/lib/*" api.weather.OpenWeatherRequ
 ```
 ✅ `Enter city:` のプロンプトが表示されたら、都市名を入力し、API が正常に動作するか確認
 🚫 `São Paulo` のようなスペースが入る場合は、`São+Paulo,BR` のようにエンコードする
-🚫 イタリアの`Roma`を検索したい場合は、`Roma,IT` のように国名を付加して園子＾度する
+🚫 イタリアの`Roma`を検索したい場合は、`Roma,IT` のように国名を付加してエンコードする
 ✅ [国名表現一覧](https://so-zou.jp/web-app/tech/data/code/country.htm)
 
 ### **3.3 API のレスポンス例**
