@@ -19,7 +19,7 @@ public class OpenWeatherRequestCatch {
         scanner.close();
 
         // APIのURLを生成
-        String url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api.httprequest.getAPIKEY.getOpenweatherApi() + "&units=metric";
+        String url = "https://api.openweathermap.org/data/2.5/weather/find?q=" + city + "&appid=" + api.httprequest.getAPIKEY.getOpenweatherApi() + "&units=metric";
 
         HttpClientService httpClientService = new HttpClientService(HttpClients.createDefault());
 
