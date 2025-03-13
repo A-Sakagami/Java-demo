@@ -3,7 +3,7 @@
 import io.github.cdimascio.dotenv.Dotenv;
 
 <span class="nc" id="L5">public class getAPIKEY {</span>
-<span class="nc" id="L6">    private static final Dotenv dotenv = Dotenv.load();</span>
+<span class="nc" id="L6">    private static final Dotenv dotenv = Dotenv.configure().directory(&quot;src/main/resources&quot;).ignoreIfMissing().load();</span>
 
     public static String getOpenweatherApi() {
 <span class="nc" id="L9">        String apiKey = dotenv.get(&quot;OPEN_WEATHER_API_KEY&quot;);</span>

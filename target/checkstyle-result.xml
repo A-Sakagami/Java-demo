@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="9.3">
-<file name="C:\Users\GENZ-\Java-demo\src\main\java\api\httprequest\getAPIKEY.java">
+<file name="C:\Users\Akiya\java-maven-demo-20240411\java-demo\backend\src\main\java\api\httprequest\getAPIKEY.java">
 <error line="5" column="1" severity="warning" message="Javadoc コメントがありません。" source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="5" column="14" severity="warning" message="Type name &apos;getAPIKEY&apos; must match pattern &apos;^[A-Z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.TypeNameCheck"/>
 <error line="5" column="14" severity="warning" message="名前 &apos;getAPIKEY&apos; 中の略語が含む大文字の数は &apos;1&apos; 以下にしてください。" source="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck"/>
+<error line="6" severity="warning" message="行が 100 文字を超えています （117 個見つかりました）。" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="6" column="5" severity="warning" message="&apos;member def modifier&apos; のインデントレベル 4 は正しくありません。期待されるレベルは 2 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="8" column="5" severity="warning" message="&apos;method def modifier&apos; のインデントレベル 4 は正しくありません。期待されるレベルは 2 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="8" column="5" severity="warning" message="Javadoc コメントがありません。" source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
@@ -15,7 +16,7 @@
 <error line="13" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="14" column="5" severity="warning" message="&apos;method def rcurly&apos; のインデントレベル 4 は正しくありません。期待されるレベルは 2 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 </file>
-<file name="C:\Users\GENZ-\Java-demo\src\main\java\api\httprequest\HttpClientService.java">
+<file name="C:\Users\Akiya\java-maven-demo-20240411\java-demo\backend\src\main\java\api\httprequest\HttpClientService.java">
 <error line="7" column="1" severity="warning" message="&apos;org.apache.http.client.HttpClient&apos; のインポート文が辞書式順序になっていません。 &apos;org.apache.http.util.EntityUtils&apos; の前にしてください。" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="9" column="1" severity="warning" message="Javadoc コメントがありません。" source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="10" column="5" severity="warning" message="&apos;member def modifier&apos; のインデントレベル 4 は正しくありません。期待されるレベルは 2 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
@@ -29,36 +30,61 @@
 <error line="19" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="20" column="5" severity="warning" message="&apos;method def rcurly&apos; のインデントレベル 4 は正しくありません。期待されるレベルは 2 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 </file>
-<file name="C:\Users\GENZ-\Java-demo\src\main\java\api\weather\OpenWeatherRequestCatch.java">
-<error line="8" column="1" severity="warning" message="&apos;java.util.Scanner&apos; のインポート文が辞書式順序になっていません。 &apos;org.apache.http.impl.client.HttpClients&apos; の前にしてください。" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
-<error line="8" column="1" severity="warning" message="&apos;java.util.Scanner&apos; の前にあるインポート・グループの区切りは不要です。" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
-<error line="10" column="1" severity="warning" message="Javadoc コメントがありません。" source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
-<error line="11" column="5" severity="warning" message="&apos;method def modifier&apos; のインデントレベル 4 は正しくありません。期待されるレベルは 2 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="11" column="5" severity="warning" message="Javadoc コメントがありません。" source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<file name="C:\Users\Akiya\java-maven-demo-20240411\java-demo\backend\src\main\java\api\utilities\countryFlagConverter.java">
+<error line="3" column="1" severity="warning" message="Javadoc コメントがありません。" source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="3" column="14" severity="warning" message="Type name &apos;countryFlagConverter&apos; must match pattern &apos;^[A-Z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.TypeNameCheck"/>
+<error line="4" column="5" severity="warning" message="&apos;method def modifier&apos; のインデントレベル 4 は正しくありません。期待されるレベルは 2 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="4" column="5" severity="warning" message="Javadoc コメントがありません。" source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="5" column="9" severity="warning" message="&apos;if&apos; のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="6" column="13" severity="warning" message="&apos;if&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="7" column="9" severity="warning" message="&apos;if rcurly&apos; のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="8" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="9" column="9" severity="warning" message="&apos;for&apos; のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="10" column="13" severity="warning" message="&apos;for&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="11" column="9" severity="warning" message="&apos;for rcurly&apos; のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="12" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="13" column="5" severity="warning" message="&apos;method def rcurly&apos; のインデントレベル 4 は正しくありません。期待されるレベルは 2 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+</file>
+<file name="C:\Users\Akiya\java-maven-demo-20240411\java-demo\backend\src\main\java\api\weather\OpenWeatherRequestCatch.java">
+<error line="4" column="21" severity="warning" message="&apos;.*&apos; 形式のインポートの使用は避けるべきです - api.utilities.*。" source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="9" column="1" severity="warning" message="&apos;java.util.Scanner&apos; のインポート文が辞書式順序になっていません。 &apos;org.apache.http.impl.client.HttpClients&apos; の前にしてください。" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="9" column="1" severity="warning" message="&apos;java.util.Scanner&apos; の前にあるインポート・グループの区切りは不要です。" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="11" column="1" severity="warning" message="Javadoc コメントがありません。" source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="12" column="5" severity="warning" message="&apos;method def modifier&apos; のインデントレベル 4 は正しくありません。期待されるレベルは 2 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="12" column="5" severity="warning" message="Javadoc コメントがありません。" source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
 <error line="13" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="15" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="14" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="16" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="17" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="18" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="21" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="23" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="25" column="9" severity="warning" message="&apos;try&apos; のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="26" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="19" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="22" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="24" column="9" severity="warning" message="&apos;method def&apos; の子のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="26" column="9" severity="warning" message="&apos;try&apos; のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="27" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="28" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="30" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="31" severity="warning" message="行が 100 文字を超えています （121 個見つかりました）。" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="31" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="32" severity="warning" message="行が 100 文字を超えています （122 個見つかりました）。" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="32" severity="warning" message="行が 100 文字を超えています （132 個見つかりました）。" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="32" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="33" severity="warning" message="行が 100 文字を超えています （121 個見つかりました）。" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="33" severity="warning" message="行が 100 文字を超えています （118 個見つかりました）。" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="33" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="34" severity="warning" message="行が 100 文字を超えています （183 個見つかりました）。" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="34" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="36" column="9" severity="warning" message="&apos;try rcurly&apos; のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="37" column="13" severity="warning" message="&apos;catch&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="38" column="13" severity="warning" message="&apos;catch&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="39" column="9" severity="warning" message="&apos;catch rcurly&apos; のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="40" column="5" severity="warning" message="&apos;method def rcurly&apos; のインデントレベル 4 は正しくありません。期待されるレベルは 2 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="35" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="36" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="37" severity="warning" message="行が 100 文字を超えています （130 個見つかりました）。" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="37" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="38" severity="warning" message="行が 100 文字を超えています （116 個見つかりました）。" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="38" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="39" severity="warning" message="行が 100 文字を超えています （114 個見つかりました）。" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="39" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="40" severity="warning" message="行が 100 文字を超えています （109 個見つかりました）。" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="40" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="41" severity="warning" message="行が 100 文字を超えています （174 個見つかりました）。" source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="41" column="13" severity="warning" message="&apos;try&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="43" column="9" severity="warning" message="&apos;try rcurly&apos; のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="44" column="13" severity="warning" message="&apos;catch&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="45" column="13" severity="warning" message="&apos;catch&apos; の子のインデントレベル 12 は正しくありません。期待されるレベルは 6 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="46" column="9" severity="warning" message="&apos;catch rcurly&apos; のインデントレベル 8 は正しくありません。期待されるレベルは 4 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="47" column="5" severity="warning" message="&apos;method def rcurly&apos; のインデントレベル 4 は正しくありません。期待されるレベルは 2 です。" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 </file>
 </checkstyle>

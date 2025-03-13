@@ -1,3 +1,4 @@
 api\httprequest\getAPIKEY.class
-api\httprequest\HttpClientService.class
 api\weather\OpenWeatherRequestCatch.class
+api\httprequest\HttpClientService.class
+api\utilities\countryFlagConverter.class
