@@ -1,2 +1,2 @@
 /memo/*
-target/
+src/main/resources/.env

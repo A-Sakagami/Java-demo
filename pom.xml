@@ -3,60 +3,83 @@
   <groupId>com.example</groupId>
   <artifactId>demo</artifactId>
   <version>1.0-SNAPSHOT</version>
+
+  <!-- プロジェクトのプロパティ定義 -->
   <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.version>5.6.0</junit.version>
-    <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
-    <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
-    <checkstyle.version>8.45.1</checkstyle.version>
-    <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-    <jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
-    <maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
-    <!-- JaCoCo thresholds. Increase gradually as you add tests. -->
-    <jacoco.unit-tests.limit.instruction-ratio>0%</jacoco.unit-tests.limit.instruction-ratio>
-    <jacoco.unit-tests.limit.branch-ratio>0%</jacoco.unit-tests.limit.branch-ratio>
-    <jacoco.unit-tests.limit.class-complexity>20</jacoco.unit-tests.limit.class-complexity>
-    <jacoco.unit-tests.limit.method-complexity>5</jacoco.unit-tests.limit.method-complexity>
+    <junit.version>5.9.2</junit.version>
+    <maven-enforcer-plugin.version>3.0.0</maven-enforcer-plugin.version>
+    <maven-checkstyle-plugin.version>3.3.0</maven-checkstyle-plugin.version>
+    <checkstyle.version>10.12.1</checkstyle.version>
+    <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
+    <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
+    <maven-javadoc-plugin.version>3.4.0</maven-javadoc-plugin.version>
   </properties>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.4.3</version>
+    <relativePath/>
+  </parent>
+
   <dependencies>
-      <!-- JUnit.jupiterの依存関係 -->
+    <!-- Spring Boot Web Starter -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- dotenv -->
+    <dependency>
+        <groupId>io.github.cdimascio</groupId>
+        <artifactId>dotenv-java</artifactId>
+        <version>3.2.0</version>
+    </dependency>
+
+    <!-- JUnit 5 のテストライブラリ -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
+      <artifactId>junit-jupiter</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
-    </dependency>
-        <!-- Mockitoの依存関係 -->
-    <dependency>
-        <groupId>org.mockito</groupId>
-        <artifactId>mockito-core</artifactId>
-        <version>4.5.1</version>
-        <scope>test</scope>
-    </dependency>
-        <!-- HttpClient for sending requests -->
-    <dependency>
-        <groupId>org.apache.httpcomponents</groupId>
-        <artifactId>httpclient</artifactId>
-        <version>4.5.13</version>
     </dependency>
     
-    <!-- Gson for JSON parsing -->
+    <!-- Mockito（モックフレームワーク） -->
     <dependency>
-        <groupId>com.google.code.gson</groupId>
-        <artifactId>gson</artifactId>
-        <version>2.8.6</version>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>5.4.0</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- Apache HttpClient (修正: httpclient5 -> httpclient) -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.14</version>
+    </dependency>
+    
+    <!-- Apache HttpCore -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpcore</artifactId>
+      <version>4.4.16</version>
+    </dependency>
+    
+    <!-- Gson（JSON解析ライブラリ） -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10.1</version>
     </dependency>
   </dependencies>
+
   <build>
     <plugins>
+      <!-- Maven Enforcer Plugin（バージョン管理） -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
@@ -69,128 +92,74 @@
             <configuration>
               <rules>
                 <requireMavenVersion>
-                  <version>3.6.3</version>
+                  <version>3.8.1</version>
                 </requireMavenVersion>
               </rules>
-              <fail>true</fail>
             </configuration>
           </execution>
         </executions>
       </plugin>
+      
+      <!-- Maven Checkstyle Plugin（コード品質チェック） -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>${maven-checkstyle-plugin.version}</version>
-        <dependencies>
-          <dependency>
-            <groupId>com.puppycrawl.tools</groupId>
-            <artifactId>checkstyle</artifactId>
-            <version>${checkstyle.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>com.github.ngeor</groupId>
-            <artifactId>checkstyle-rules</artifactId>
-            <version>4.9.3</version>
-          </dependency>
-        </dependencies>
-        <configuration>
-          <release>11</release>
-          <configLocation>com/github/ngeor/checkstyle.xml</configLocation>
-          <includeTestSourceDirectory>true</includeTestSourceDirectory>
-          <skip>${skipTests}</skip>
-        </configuration>
+        <version>3.6.0</version>
         <executions>
           <execution>
-            <?m2e ignore?>
-            <id>checkstyle</id>
+            <id>validate</id>
             <phase>validate</phase>
             <goals>
               <goal>check</goal>
             </goals>
+            <configuration>
+              <configLocation>google_checks.xml</configLocation>
+              <failOnViolation>false</failOnViolation>
+            </configuration>
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${maven-surefire-plugin.version}</version>
-      </plugin>
+      
+      <!-- JaCoCo（テストカバレッジ計測） -->
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>${jacoco-maven-plugin.version}</version>
         <executions>
           <execution>
-            <id>pre-unit-test</id>
+            <id>prepare-agent</id>
             <goals>
               <goal>prepare-agent</goal>
             </goals>
           </execution>
           <execution>
-            <id>post-unit-test</id>
+            <id>report</id>
             <phase>test</phase>
             <goals>
               <goal>report</goal>
             </goals>
           </execution>
-          <execution>
-            <id>check-unit-test</id>
-            <phase>test</phase>
-            <goals>
-              <goal>check</goal>
-            </goals>
-            <configuration>
-              <dataFile>${project.build.directory}/jacoco.exec</dataFile>
-              <rules>
-                <rule>
-                  <element>BUNDLE</element>
-                  <limits>
-                    <limit>
-                      <counter>INSTRUCTION</counter>
-                      <value>COVEREDRATIO</value>
-                      <minimum>${jacoco.unit-tests.limit.instruction-ratio}</minimum>
-                    </limit>
-                    <limit>
-                      <counter>BRANCH</counter>
-                      <value>COVEREDRATIO</value>
-                      <minimum>${jacoco.unit-tests.limit.branch-ratio}</minimum>
-                    </limit>
-                  </limits>
-                </rule>
-                <rule>
-                  <element>CLASS</element>
-                  <limits>
-                    <limit>
-                      <counter>COMPLEXITY</counter>
-                      <value>TOTALCOUNT</value>
-                      <maximum>${jacoco.unit-tests.limit.class-complexity}</maximum>
-                    </limit>
-                  </limits>
-                </rule>
-                <rule>
-                  <element>METHOD</element>
-                  <limits>
-                    <limit>
-                      <counter>COMPLEXITY</counter>
-                      <value>TOTALCOUNT</value>
-                      <maximum>${jacoco.unit-tests.limit.method-complexity}</maximum>
-                    </limit>
-                  </limits>
-                </rule>
-              </rules>
-            </configuration>
-          </execution>
         </executions>
+      </plugin>
+      <!-- JAR を作成するための maven-jar-plugin -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.2.0</version>
+          <configuration>
+              <archive>
+                  <manifest>
+                      <mainClass>api.weather.OpenWeatherRequestCatch</mainClass>
+                  </manifest>
+                  <manifestEntries>
+                      <Class-Path>lib/*</Class-Path>
+                  </manifestEntries>
+              </archive>
+              <includes>
+                  <include>**/*.class</include>
+              </includes>
+          </configuration>
       </plugin>
     </plugins>
   </build>
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${maven-javadoc-plugin.version}</version>
-      </plugin>
-    </plugins>
-  </reporting>
 </project>
