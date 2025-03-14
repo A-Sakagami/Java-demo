@@ -1,0 +1,3 @@
+api\weather\OpenWeatherRequestCatchTest.class
+api\httprequest\getAPIKEYTest.class
+api\httprequest\HttpClientServiceTest.class

@@ -15,7 +15,6 @@ public class OpenWeatherRequestCatch {
 
         System.out.print("Enter city: ");
         String city = scanner.nextLine().trim();
-        System.out.println("DEBUG: 入力された都市名: " + city);
         scanner.close();
 
         // APIのURLを生成
@@ -26,10 +25,9 @@ public class OpenWeatherRequestCatch {
         try {
             String jsonResponse = httpClientService.sendRequest(url);
             JsonObject jsonObject = JsonParser.parseString(jsonResponse).getAsJsonObject();
-            // 整形しないver
-            System.out.println("DEBUG: APIからのレスポンス: " + jsonResponse);
+
             // 整形して表示
-            System.out.println(" icon: " + jsonObject.getAsJsonArray("weather").get(0).getAsJsonObject().get("icon").getAsString());
+            //System.out.println(" icon: " + jsonObject.getAsJsonArray("weather").get(0).getAsJsonObject().get("icon").getAsString());
             String iconCode = jsonObject.getAsJsonArray("weather").get(0).getAsJsonObject().get("icon").getAsString();
             String iconUrl = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
             System.out.println(" icon URL: " + iconUrl);
