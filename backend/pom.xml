@@ -9,11 +9,13 @@
 <!-- See: http://maven.apache.org/plugins/maven-help-plugin/                -->
 <!-- ====================================================================== -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example</groupId>
-  <artifactId>demo</artifactId>
-  <version>1.0-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
   <!-- プロジェクトのプロパティ定義 -->
   <properties>
@@ -43,6 +45,11 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
     <!-- dotenv -->
     <dependency>
         <groupId>io.github.cdimascio</groupId>
@@ -50,7 +57,7 @@
         <version>3.2.0</version>
     </dependency>
 
-    <!-- JUnit 5 のテストライブラリ -->
+    <!-- JUnit 5 -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
@@ -58,7 +65,7 @@
       <scope>test</scope>
     </dependency>
     
-    <!-- Mockito（モックフレームワーク） -->
+    <!-- Mockito -->
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
@@ -66,7 +73,7 @@
       <scope>test</scope>
     </dependency>
     
-    <!-- Apache HttpClient (修正: httpclient5 -> httpclient) -->
+    <!-- Apache HttpClient -->
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
@@ -86,7 +93,7 @@
       <version>4.4.16</version>
     </dependency>
     
-    <!-- Gson（JSON解析ライブラリ） -->
+    <!-- Gson -->
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
@@ -95,8 +102,10 @@
   </dependencies>
 
   <build>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
     <plugins>
-      <!-- Maven Enforcer Plugin（バージョン管理） -->
+      <!-- Maven Enforcer Plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
@@ -117,11 +126,11 @@
         </executions>
       </plugin>
       
-      <!-- Maven Checkstyle Plugin（コード品質チェック） -->
+      <!-- Maven Checkstyle Plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.6.0</version>
+        <version>${maven-checkstyle-plugin.version}</version>
         <executions>
           <execution>
             <id>validate</id>
@@ -137,7 +146,7 @@
         </executions>
       </plugin>
       
-      <!-- JaCoCo（テストカバレッジ計測） -->
+      <!-- JaCoCo -->
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -158,24 +167,52 @@
           </execution>
         </executions>
       </plugin>
-      <!-- JAR を作成するための maven-jar-plugin -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.2.0</version>
-          <configuration>
-              <archive>
-                  <manifest>
-                      <mainClass>api.weather.OpenWeatherRequestCatch</mainClass>
-                  </manifest>
-                  <manifestEntries>
-                      <Class-Path>lib/*</Class-Path>
-                  </manifestEntries>
-              </archive>
-              <includes>
-                  <include>**/*.class</include>
-              </includes>
-          </configuration>
+
+      <!-- exec-maven-plugin -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <mainClass>api.weather.OpenWeatherRequestCatch</mainClass>
+        </configuration>
+      </plugin>
+
+      <!-- maven-jar-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.0</version>
+        <configuration>
+
+            <archive>
+                <manifest>
+                  <mainClass>api.weather.OpenWeatherRequestCatch</mainClass>
+                  <addClasspath>true</addClasspath>
+                  <classpathPrefix>lib/</classpathPrefix>
+                </manifest>
+            </archive>
+        </configuration>
+      </plugin>
+
+      <!-- maven-dependency-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.3.0</version>
+        <executions>
+            <execution>
+                <id>copy-dependencies</id>
+                <phase>package</phase>
+                <goals>
+                    <goal>copy-dependencies</goal>
+                </goals>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                    <includeScope>compile</includeScope>
+                </configuration>
+            </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

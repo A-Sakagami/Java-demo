@@ -1,4 +1,3 @@
-/memo/*
 backend/src/main/resources/.env
 backend/target/
 frontend/node_modules/
