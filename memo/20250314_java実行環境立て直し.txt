@@ -1,0 +1,87 @@
+$ mvn dependency:tree | grep httpclient
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+[INFO] +- org.apache.httpcomponents:httpclient:jar:4.5.14:compile
+ChatGPT:
+mvn dependency:tree | grep httpclient の結果から、Maven の httpclient 依存関係は 正しく追加されている ことが確認できました。
+しかし、java.lang.NoClassDefFoundError: org/apache/http/client/HttpClient が発生するのは、実行時に httpclient の JAR がクラスパスに含まれていない ためです。
+
+✅ 解決策
+🚀 方法 1: java -cp のクラスパスを修正
+現在の java -jar の実行方法では 依存関係が JAR に含まれていない ため、java -cp で httpclient を手動で追加します。
+
+sh
+コピーする
+編集する
+java -cp "target/demo-1.0-SNAPSHOT.jar;target/lib/*" api.weather.OpenWeatherRequestCatch
+📌 PowerShell では ;、Mac/Linux では : を使うので注意！
+
+✅ これで httpclient の NoClassDefFoundError が解決するはず！
+
+🚀 方法 2: jar-with-dependencies を作成
+Maven の maven-assembly-plugin を使って、すべての依存関係を含む JAR（fat JAR） を作成します。
+
+1️⃣ pom.xml に以下の設定を追加
+
+xml
+コピーする
+編集する
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <version>3.4.0</version>
+    <executions>
+        <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+                <goal>single</goal>
+            </goals>
+            <configuration>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+                <archive>
+                    <manifest>
+                        <mainClass>api.weather.OpenWeatherRequestCatch</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+2️⃣ Maven でクリーンビルド
+
+sh
+コピーする
+編集する
+mvn clean package
+3️⃣ fat JAR を実行
+
+sh
+コピーする
+編集する
+java -jar target/demo-1.0-SNAPSHOT-jar-with-dependencies.jar
+✅ すべての依存関係を含む JAR なので、httpclient の NoClassDefFoundError が解決！
+
+🚀 方法 3: mvn dependency:copy-dependencies を実行
+Maven で target/lib/ に依存関係の JAR が正しく配置されているか 確認します。
+
+sh
+コピーする
+編集する
+mvn dependency:copy-dependencies
+その後、再度 java -cp で実行：
+
+sh
+コピーする
+編集する
+java -cp "target/demo-1.0-SNAPSHOT.jar;target/dependency/*" api.weather.OpenWeatherRequestCatch
+✅ もし target/lib/ に JAR がない場合は、mvn dependency:copy-dependencies で解決できる！
+
+🎯 まとめ
+試すべきこと	コマンド / 方法
+httpclient の JAR があるか確認	`ls target/lib/
+クラスパスを修正して実行	java -cp "target/demo-1.0-SNAPSHOT.jar;target/lib/*" api.weather.OpenWeatherRequestCatch
+依存関係を含む fat JAR を作成	mvn clean package 後、java -jar target/demo-1.0-SNAPSHOT-jar-with-dependencies.jar
+依存関係をコピーする	mvn dependency:copy-dependencies
+💡 「方法 1（クラスパスを手動設定）」または「方法 2（fat JAR を作成）」で解決する可能性が高いです！ 🚀

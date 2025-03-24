@@ -1,0 +1,7 @@
+ディレクトリの確認
+dir "C:\Users\Akiya\java-maven-demo-20240411\java-demo"
+dir "C:\Users\Akiya\java-maven-demo-20240411\java-demo\backend"
+dir "C:\Users\Akiya\java-maven-demo-20240411\java-demo\frontend"
+
+新しいpom.xmlの更新コマンド
+mvn -q help:effective-pom -Doutput="C:\Users\Akiya\java-maven-demo-20240411\java-demo\backend\effective-pom.xml" -f "C:\Users\Akiya\java-maven-demo-20240411\java-demo\backend\pom.xml"
