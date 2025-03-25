@@ -110,7 +110,7 @@ Hello, Spring Boot!
 
 #### **📌 `GET /api/weather/city?city=Tokyo`**
 ```sh
-curl "http://localhost:8080/api/weather/city?city=Tokyo"
+curl "http://localhost:8081/api/weather/city?city=Tokyo"
 ```
 ✅ **レスポンス**
 ```sh
@@ -122,7 +122,7 @@ Weather data for: Tokyo
 ### **✅ `404 Not Found` になる場合**
 1. **エンドポイントが適切に定義されているか確認**
    - `@RequestMapping("/api/weather")` のパスと `@GetMapping("/hello")` の組み合わせを正しく設定
-   - 例: `GET /api/weather/hello` → `http://localhost:8080/api/weather/hello`
+   - 例: `GET /api/weather/hello` → `http://localhost:8081/api/weather/hello`
 
 2. **クラスが `Spring Boot` に認識されているか？**
    - `@SpringBootApplication` のパッケージ階層内に `WeatherController` があるか？

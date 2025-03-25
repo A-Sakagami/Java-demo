@@ -5,6 +5,7 @@ package api.weather;
  * @author @A-Sakagami
  * @param weatherIcon 天気アイコン
  * @param weatherIconUrl 天気アイコンのURL
+ * @param weatherDescription 天気の説明
  * @param cityName 場所名
  * @param country 国名
  * @param temperature 気温
@@ -15,6 +16,9 @@ package api.weather;
 public class ApiResult {
     private String weatherIcon;
     private String weatherIconUrl;
+    private String weatherDescription;
+
+
     private String cityName;
     private String country;
     private double temperature;
@@ -41,6 +45,14 @@ public class ApiResult {
 
     public void setWeatherIconUrl(String weatherIconUrl) {
         this.weatherIconUrl = weatherIconUrl;
+    }
+
+    public String getWeatherDescription() {
+        return weatherDescription;
+    }
+
+    public void setWeatherDescription(String weatherDescription) {
+        this.weatherDescription = weatherDescription;
     }
 
     public String getName() {

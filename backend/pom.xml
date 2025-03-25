@@ -187,7 +187,7 @@
 
             <archive>
                 <manifest>
-                  <mainClass>api.weather.OpenWeatherRequestCatch</mainClass>
+                  <mainClass>api.weather.WeatherApp</mainClass>
                   <addClasspath>true</addClasspath>
                   <classpathPrefix>lib/</classpathPrefix>
                 </manifest>
